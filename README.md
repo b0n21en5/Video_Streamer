@@ -1,1 +1,2 @@
-# chat_application
+# video_streaming_application
+
