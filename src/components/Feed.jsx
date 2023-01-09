@@ -6,9 +6,10 @@ import { FetchFromAPI } from "../utils/FetchFromAPI";
 const Feed = () => {
 
   const [ selectedCategory, setSelectedCategory ] = useState('New');
+  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    FetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+    FetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>{setVideos(data.items)})
   }, [selectedCategory]);
 
   return (
@@ -21,10 +22,10 @@ const Feed = () => {
 
       <Box p={2} sx={{overflowY:'auto', height: '90vh', flext: 2}}>
         <Typography variant="h4" fontWeight="bold" mb={2} sx={{color: 'white'}}>
-          New  <span style={{color: '#fc1503' }}>videos</span>
+          {selectedCategory} <span style={{color: '#fc1503' }}>videos</span>
         </Typography>
 
-        <Videos videos={[]} />
+        <Videos videos={videos} />
       </Box>
     </Stack>
   )
