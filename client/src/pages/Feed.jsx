@@ -1,20 +1,28 @@
 import { Stack, Box, Typography } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { SideBar } from "../components";
 import Videos from "./Video/Videos";
 import { FetchFromAPI } from "../utils/FetchFromAPI";
-import { useAuth } from "../context/auth";
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
   const [videos, setVideos] = useState([]);
-  const [auth] = useAuth();
 
   useEffect(() => {
     FetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) => {
       setVideos(data.items);
     });
   }, [selectedCategory]);
+
+  const memoizedVideosComponent = useMemo(
+    () => <Videos videos={videos} />,
+    [videos]
+  );
+
+  const memoizedSelectedCategory = useMemo(
+    () => selectedCategory,
+    [selectedCategory]
+  );
 
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
@@ -26,7 +34,7 @@ const Feed = () => {
         }}
       >
         <SideBar
-          selectedCategory={selectedCategory}
+          selectedCategory={memoizedSelectedCategory}
           setSelectedCategory={setSelectedCategory}
         />
 
@@ -46,10 +54,11 @@ const Feed = () => {
           mb={2}
           sx={{ color: "white" }}
         >
-          {selectedCategory} <span style={{ color: "#f31503" }}>videos</span>
+          {memoizedSelectedCategory}{" "}
+          <span style={{ color: "#f31503" }}>videos</span>
         </Typography>
 
-        <Videos videos={videos} />
+        {memoizedVideosComponent}
       </Box>
     </Stack>
   );

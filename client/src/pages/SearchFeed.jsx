@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Videos from "./Video/Videos";
 import { FetchFromAPI } from "../utils/FetchFromAPI";
 import { useParams } from "react-router-dom";
@@ -15,6 +15,11 @@ const SearchFeed = () => {
     });
   }, [searchTerm]);
 
+  const memoizedVideosComponent = useMemo(
+    () => <Videos videos={videos} />,
+    [videos]
+  );
+
   return (
     <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
       <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "white" }}>
@@ -22,7 +27,7 @@ const SearchFeed = () => {
         <span style={{ color: "#f31503" }}>{searchTerm}</span> videos
       </Typography>
 
-      <Videos videos={videos} />
+      {memoizedVideosComponent}
     </Box>
   );
 };

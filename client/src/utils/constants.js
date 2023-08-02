@@ -15,22 +15,22 @@ import DeveloperModeIcon from "@mui/icons-material/DeveloperMode";
 export const logo = "https://i.ibb.co/s9Qys2j/logo.png";
 
 export const categories = [
-  { name: "New", icon: <HomeIcon /> },
-  { name: "Coding", icon: <CodeIcon /> },
-  { name: "ReactJS", icon: <CodeIcon /> },
-  { name: "NextJS", icon: <CodeIcon /> },
-  { name: "Music", icon: <MusicNoteIcon /> },
-  { name: "Education", icon: <SchoolIcon /> },
-  { name: "Podcast", icon: <GraphicEqIcon /> },
-  { name: "Movie", icon: <OndemandVideoIcon /> },
-  { name: "Gaming", icon: <SportsEsportsIcon /> },
-  { name: "Live", icon: <LiveTvIcon /> },
-  { name: "Sport", icon: <FitnessCenterIcon /> },
-  { name: "Fashion", icon: <CheckroomIcon /> },
-  { name: "Beauty", icon: <FaceRetouchingNaturalIcon /> },
-  { name: "Comedy", icon: <TheaterComedyIcon /> },
-  { name: "Gym", icon: <FitnessCenterIcon /> },
-  { name: "Crypto", icon: <DeveloperModeIcon /> },
+  { key: 1, name: "New", icon: <HomeIcon /> },
+  { key: 2, name: "Coding", icon: <CodeIcon /> },
+  { key: 3, name: "ReactJS", icon: <CodeIcon /> },
+  { key: 4, name: "NextJS", icon: <CodeIcon /> },
+  { key: 5, name: "Music", icon: <MusicNoteIcon /> },
+  { key: 6, name: "Education", icon: <SchoolIcon /> },
+  { key: 7, name: "Podcast", icon: <GraphicEqIcon /> },
+  { key: 8, name: "Movie", icon: <OndemandVideoIcon /> },
+  { key: 9, name: "Gaming", icon: <SportsEsportsIcon /> },
+  { key: 10, name: "Live", icon: <LiveTvIcon /> },
+  { key: 11, name: "Sport", icon: <FitnessCenterIcon /> },
+  { key: 12, name: "Fashion", icon: <CheckroomIcon /> },
+  { key: 13, name: "Beauty", icon: <FaceRetouchingNaturalIcon /> },
+  { key: 14, name: "Comedy", icon: <TheaterComedyIcon /> },
+  { key: 15, name: "Gym", icon: <FitnessCenterIcon /> },
+  { key: 16, name: "Crypto", icon: <DeveloperModeIcon /> },
 ];
 
 export const demoThumbnailUrl = "https://i.ibb.co/G2L2Gwp/API-Course.png";
